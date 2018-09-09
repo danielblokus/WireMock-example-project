@@ -1,8 +1,8 @@
 package stubs;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.*;
-import static utils.EndpointPaths.EXAMPLE_ENDPOINT_PATH;
-import static utils.EndpointPaths.INVALID_ENDPOINT_PATH;
+import static utils.WebServicePaths.EXAMPLE_ENDPOINT_PATH;
+import static utils.WebServicePaths.INVALID_ENDPOINT_PATH;
 import static utils.HttpStatusCodes.NOT_FOUND;
 
 public class ExampleStub {

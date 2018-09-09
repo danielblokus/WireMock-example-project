@@ -7,12 +7,12 @@ import org.junit.BeforeClass;
 import org.junit.Rule;
 import org.junit.Test;
 import stubs.ExampleStub;
-import utils.EndpointPaths;
+import utils.WebServicePaths;
 import utils.HttpStatusCodes;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
-import static utils.EndpointPaths.INVALID_ENDPOINT_PATH;
+import static utils.WebServicePaths.INVALID_ENDPOINT_PATH;
 
 public class ExampleTest {
 
@@ -33,7 +33,7 @@ public class ExampleTest {
 
 		given()
 		.when()
-			.get(EndpointPaths.EXAMPLE_ENDPOINT_PATH)
+			.get(WebServicePaths.EXAMPLE_ENDPOINT_PATH)
 		.then()
 			.assertThat()
 				.body(equalTo("Hello"))
@@ -59,7 +59,7 @@ public class ExampleTest {
 
 		given()
 		.when()
-			.get(EndpointPaths.EXAMPLE_ENDPOINT_PATH)
+			.get(WebServicePaths.EXAMPLE_ENDPOINT_PATH)
 		.then()
 			.assertThat()
 				.contentType(ContentType.TEXT);
