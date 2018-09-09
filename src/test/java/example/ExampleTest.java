@@ -38,7 +38,7 @@ public class ExampleTest {
 			.assertThat()
 				.body(equalTo("Hello"))
 			.and()
-				.statusCode(HttpStatusCodes.SUCCESS_CODE);
+				.statusCode(HttpStatusCodes.SUCCESS);
 	}
 
 	@Test
