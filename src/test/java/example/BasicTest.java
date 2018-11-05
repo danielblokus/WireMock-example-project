@@ -5,8 +5,6 @@ import io.restassured.RestAssured;
 import org.junit.BeforeClass;
 import org.junit.Rule;
 
-import static io.restassured.RestAssured.basic;
-
 public class BasicTest {
     private static final int port = 9999;
 
