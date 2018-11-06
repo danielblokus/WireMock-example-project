@@ -1,6 +1,7 @@
 package stubs;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.*;
+import static utils.HttpStatusCodes.SUCCESS;
 import static utils.WebServicePaths.BA_ENDPOINT_PATH;
 
 public class BasicAuthStub {
@@ -14,6 +15,6 @@ public class BasicAuthStub {
                 .withBasicAuth(VALID_USER_NAME, VALID_PASSWORD)
                 .willReturn(aResponse()
                         .withBody(bodyResponse)
-                        .withStatus(200)));
+                        .withStatus(SUCCESS)));
     }
 }
