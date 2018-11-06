@@ -68,6 +68,5 @@ public class ExampleTest extends BasicTest {
 				.body(equalTo(VALID_BODY_RESPONSE))
 			.and()
 				.time(lessThan(FIXED_DELAY_IN_MILLISECONDS));
-
 	}
 }
