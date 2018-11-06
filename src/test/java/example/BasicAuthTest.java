@@ -14,13 +14,16 @@ import static utils.HttpStatusCodes.SUCCESS;
 public class BasicAuthTest extends BasicTest {
 
     private static final String VALID_RESPONSE = "Hello BA!";
+    private static final String VALID_USER_NAME = "admin@danielblokus.github.io";
+    private static final String VALID_PASSWORD = "12345678";
+
     BasicAuthStub basicAuthStub = new BasicAuthStub();
 
     @Before
     public void setPreemptiveBasicAuthentication() {
         RestAssured.authentication =
                 preemptive()
-                .basic("admin@danielblokus.github.io", "12345678");
+                .basic(VALID_USER_NAME, VALID_PASSWORD);
     }
 
     @Test

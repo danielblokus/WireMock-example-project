@@ -6,10 +6,12 @@ import static utils.WebServicePaths.BA_ENDPOINT_PATH;
 public class BasicAuthStub {
 
     private final String bodyResponse = "Hello BA!";
+    private static final String VALID_USER_NAME = "admin@danielblokus.github.io";
+    private static final String VALID_PASSWORD = "12345678";
 
     public void stubResponse() {
         stubFor(get(BA_ENDPOINT_PATH)
-                .withBasicAuth("admin@danielblokus.github.io", "12345678")
+                .withBasicAuth(VALID_USER_NAME, VALID_PASSWORD)
                 .willReturn(aResponse()
                         .withBody(bodyResponse)
                         .withStatus(200)));
