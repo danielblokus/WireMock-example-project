@@ -17,7 +17,7 @@ public class BasicAuthTest extends BasicTest {
     private static final String VALID_USER_NAME = "admin@danielblokus.github.io";
     private static final String VALID_PASSWORD = "12345678";
 
-    BasicAuthStub basicAuthStub = new BasicAuthStub();
+    private final BasicAuthStub basicAuthStub = new BasicAuthStub();
 
     @Before
     public void setPreemptiveBasicAuthentication() {

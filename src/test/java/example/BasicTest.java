@@ -6,10 +6,11 @@ import org.junit.BeforeClass;
 import org.junit.Rule;
 
 public class BasicTest {
+
     private static final int port = 9999;
 
     @Rule
-    public WireMockRule wireMockRule = new WireMockRule(port);
+    public final WireMockRule wireMockRule = new WireMockRule(port);
 
     @BeforeClass
     public static void setUp() {
