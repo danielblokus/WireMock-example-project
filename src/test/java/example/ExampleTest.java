@@ -15,6 +15,7 @@ public class ExampleTest extends BasicTest {
 
     private static final long FIXED_DELAY_IN_MILLISECONDS = 2500L;
     private static final String VALID_BODY_RESPONSE = "Hello";
+    
     private ExampleStub exampleStub = new ExampleStub();
 
     @Test
