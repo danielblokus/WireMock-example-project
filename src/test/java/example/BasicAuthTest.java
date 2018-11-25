@@ -4,6 +4,7 @@ import io.restassured.RestAssured;
 import org.junit.Before;
 import org.junit.Test;
 import stubs.ba.BasicAuthStub;
+import utils.HttpStatusCodes;
 import utils.WebServicePaths;
 
 import static io.restassured.RestAssured.given;
@@ -52,5 +53,18 @@ public class BasicAuthTest extends BasicTest {
         .and()
             .assertThat()
                 .body(equalTo(VALID_RESPONSE));
+    }
+
+    @Test
+    public void checkStatusForUnauthorizedAccess() {
+        basicAuthStub.stubWithoutBasicAuth();
+
+        given()
+        .when()
+            .get(WebServicePaths.BA_ENDPOINT_PATH)
+        .then()
+            .log().ifValidationFails()
+                .assertThat()
+                .statusCode(HttpStatusCodes.UNAUTHORIZED);
     }
 }

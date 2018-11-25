@@ -2,6 +2,7 @@ package stubs.ba;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.*;
 import static utils.HttpStatusCodes.SUCCESS;
+import static utils.HttpStatusCodes.UNAUTHORIZED;
 import static utils.WebServicePaths.BA_ENDPOINT_PATH;
 
 public class BasicAuthStub {
@@ -16,5 +17,11 @@ public class BasicAuthStub {
                 .willReturn(aResponse()
                         .withBody(BODY_RESPONSE)
                         .withStatus(SUCCESS)));
+    }
+
+    public void stubWithoutBasicAuth() {
+        stubFor(get(BA_ENDPOINT_PATH)
+                .willReturn(aResponse()
+                        .withStatus(UNAUTHORIZED)));
     }
 }
