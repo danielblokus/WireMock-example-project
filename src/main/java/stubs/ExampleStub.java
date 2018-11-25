@@ -8,14 +8,14 @@ public class ExampleStub {
 
 	private static final String CONTENT_TYPE_HEADER_KEY = "Content-Type";
 	private static final String TEXT_PLAIN_HEADER_VALUE = "text/plain";
-	private static final String bodyResponse = "Hello";
+	private static final String BODY_RESPONSE = "Hello";
 	private static final int FIXED_DELAY_IN_MILLISECONDS = 2000;
 
 	public void stubExampleResponse() {
 		stubFor(get(EXAMPLE_ENDPOINT_PATH)
 			.willReturn(aResponse()
 				.withHeader(CONTENT_TYPE_HEADER_KEY, TEXT_PLAIN_HEADER_VALUE)
-				.withBody(bodyResponse)));
+				.withBody(BODY_RESPONSE)));
 	}
 
 	public void stubNotFoundResponse() {
@@ -26,7 +26,7 @@ public class ExampleStub {
 	public void stubFixedDelayResponse() {
 		stubFor(get(DELAYED_ENDPOINT_PATH)
 			.willReturn(aResponse()
-				.withBody(bodyResponse)
+				.withBody(BODY_RESPONSE)
 				.withFixedDelay(FIXED_DELAY_IN_MILLISECONDS)));
 	}
 }
