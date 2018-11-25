@@ -1,4 +1,4 @@
-package stubs;
+package stubs.ba;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.*;
 import static utils.HttpStatusCodes.SUCCESS;
