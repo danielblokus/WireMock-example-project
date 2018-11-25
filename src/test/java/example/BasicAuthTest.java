@@ -3,7 +3,7 @@ package example;
 import io.restassured.RestAssured;
 import org.junit.Before;
 import org.junit.Test;
-import stubs.BasicAuthStub;
+import stubs.ba.BasicAuthStub;
 import utils.WebServicePaths;
 
 import static io.restassured.RestAssured.given;
