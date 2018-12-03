@@ -1,27 +1,34 @@
 package example;
 
+import com.github.tomakehurst.wiremock.junit.WireMockRule;
 import io.restassured.RestAssured;
-import org.junit.Before;
-import org.junit.Test;
+import io.restassured.builder.RequestSpecBuilder;
+import io.restassured.specification.RequestSpecification;
+import org.junit.*;
 import stubs.ba.BasicAuthStub;
 import utils.HttpStatusCodes;
 import utils.WebServicePaths;
 
+import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.options;
 import static io.restassured.RestAssured.given;
 import static io.restassured.RestAssured.preemptive;
 import static org.hamcrest.Matchers.equalTo;
 import static utils.HttpStatusCodes.SUCCESS;
 
-public class BasicAuthTest extends BasicTest {
+public class BasicAuthTest {
 
+    private static final int WIREMOCK_PORT = 2111;
     private static final String VALID_RESPONSE = "Hello BA!";
     private static final String VALID_USER_NAME = "admin@danielblokus.github.io";
     private static final String VALID_PASSWORD = "12345678";
 
+    @Rule
+    public final WireMockRule wireMockRule = new WireMockRule(options().port(WIREMOCK_PORT));
+
     private final BasicAuthStub basicAuthStub = new BasicAuthStub();
 
     @Before
-    public void setPreemptiveBasicAuthentication() {
+    public void setUp() {
         RestAssured.authentication =
                 preemptive()
                 .basic(VALID_USER_NAME, VALID_PASSWORD);
@@ -32,6 +39,8 @@ public class BasicAuthTest extends BasicTest {
         basicAuthStub.stubResponse();
 
         given()
+            .log().all()
+            .port(WIREMOCK_PORT)
         .when()
             .get(WebServicePaths.BA_ENDPOINT_PATH)
         .then()
@@ -46,6 +55,8 @@ public class BasicAuthTest extends BasicTest {
         basicAuthStub.stubResponse();
 
         given()
+            .log().all()
+            .port(WIREMOCK_PORT)
         .when()
             .get(WebServicePaths.BA_ENDPOINT_PATH)
         .then()
@@ -60,6 +71,8 @@ public class BasicAuthTest extends BasicTest {
         basicAuthStub.stubWithoutBasicAuth();
 
         given()
+            .log().all()
+            .port(WIREMOCK_PORT)
         .when()
             .get(WebServicePaths.BA_ENDPOINT_PATH)
         .then()
