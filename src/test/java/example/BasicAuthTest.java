@@ -2,9 +2,9 @@ package example;
 
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
 import io.restassured.RestAssured;
-import io.restassured.builder.RequestSpecBuilder;
-import io.restassured.specification.RequestSpecification;
-import org.junit.*;
+import org.junit.Before;
+import org.junit.Rule;
+import org.junit.Test;
 import stubs.ba.BasicAuthStub;
 import utils.HttpStatusCodes;
 import utils.WebServicePaths;
