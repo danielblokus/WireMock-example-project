@@ -64,9 +64,9 @@ public class ImagesTest extends BasicTest {
 
     private List<String> getListOfOriginalUrls() {
         Response response = given()
-                .when()
+            .when()
                 .get(WebServicePaths.IMAGES_ENDPOINT_PATH)
-                .then()
+            .then()
                 .extract().response();
 
         return JsonPath.read(response.asString(), "$..originalUrl");
