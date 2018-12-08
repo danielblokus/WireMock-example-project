@@ -1,16 +1,20 @@
 package example;
 
+import com.jayway.jsonpath.JsonPath;
 import io.restassured.RestAssured;
+import io.restassured.response.Response;
 import org.junit.Before;
 import org.junit.Test;
 import stubs.ba.ImagesStub;
 import utils.HttpStatusCodes;
 import utils.WebServicePaths;
 
+import java.util.List;
+
 import static io.restassured.RestAssured.given;
 import static io.restassured.RestAssured.preemptive;
-import static org.hamcrest.Matchers.greaterThan;
-import static org.hamcrest.Matchers.hasSize;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.*;
 
 public class ImagesTest extends BasicTest {
 
@@ -48,5 +52,23 @@ public class ImagesTest extends BasicTest {
             .log().ifValidationFails()
             .assertThat()
                 .statusCode(HttpStatusCodes.SUCCESS);
+    }
+
+
+    @Test
+    public void checkHttpsShemaOfOrignalImagesUrls() {
+        getListOfOriginalUrls().forEach(x -> {
+            assertThat(x.matches("^(https)://.*$"), is(true));
+        });
+    }
+
+    private List<String> getListOfOriginalUrls() {
+        Response response = given()
+                .when()
+                .get(WebServicePaths.IMAGES_ENDPOINT_PATH)
+                .then()
+                .extract().response();
+
+        return JsonPath.read(response.asString(), "$..originalUrl");
     }
 }
