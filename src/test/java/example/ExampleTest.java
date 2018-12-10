@@ -53,7 +53,7 @@ public class ExampleTest extends BasicTest {
             .get(WebServicePaths.EXAMPLE_ENDPOINT_PATH)
         .then()
             .assertThat()
-            .contentType(ContentType.TEXT);
+                .contentType(ContentType.TEXT);
     }
 
     @Test

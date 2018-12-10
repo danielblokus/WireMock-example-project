@@ -26,8 +26,7 @@ public class ImagesTest extends BasicTest {
     @Before
     public void setPreemptiveBasicAuthentication() {
         RestAssured.authentication =
-                preemptive()
-                        .basic(VALID_USER_NAME, VALID_PASSWORD);
+            preemptive().basic(VALID_USER_NAME, VALID_PASSWORD);
 
         imagesStub.stubResponse();
     }
