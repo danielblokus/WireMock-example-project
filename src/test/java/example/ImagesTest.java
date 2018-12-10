@@ -37,7 +37,6 @@ public class ImagesTest extends BasicTest {
         .when()
             .get(WebServicePaths.IMAGES_ENDPOINT_PATH)
         .then()
-            .log().ifValidationFails()
             .assertThat()
                 .body("results", hasSize(greaterThan(0)));
     }
@@ -48,7 +47,6 @@ public class ImagesTest extends BasicTest {
         .when()
             .get(WebServicePaths.IMAGES_ENDPOINT_PATH)
         .then()
-            .log().ifValidationFails()
             .assertThat()
                 .statusCode(HttpStatusCodes.SUCCESS);
     }

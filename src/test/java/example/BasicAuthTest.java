@@ -34,8 +34,6 @@ public class BasicAuthTest extends BasicTest {
         .when()
             .get(WebServicePaths.BA_ENDPOINT_PATH)
         .then()
-            .log().ifValidationFails()
-        .and()
             .assertThat()
                 .statusCode(SUCCESS);
     }
@@ -48,8 +46,6 @@ public class BasicAuthTest extends BasicTest {
         .when()
             .get(WebServicePaths.BA_ENDPOINT_PATH)
         .then()
-            .log().ifValidationFails()
-        .and()
             .assertThat()
                 .body(equalTo(VALID_RESPONSE));
     }
@@ -64,6 +60,6 @@ public class BasicAuthTest extends BasicTest {
         .then()
             .log().ifValidationFails()
                 .assertThat()
-                .statusCode(HttpStatusCodes.UNAUTHORIZED);
+                    .statusCode(HttpStatusCodes.UNAUTHORIZED);
     }
 }
