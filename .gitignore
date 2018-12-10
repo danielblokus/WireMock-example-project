@@ -8,6 +8,10 @@
 .idea/**/dictionaries
 .idea/**/shelf
 .idea/vcs.xml
+.idea/misc.xml
+.idea/encodings.xml
+.idea/compiler.xml
+.idea/.name
 
 # Generated files
 .idea/**/contentModel.xml
@@ -62,3 +66,6 @@ fabric.properties
 
 # Editor-based Rest Client
 .idea/httpRequests
+
+# others
+.idea/sonarlint/*
