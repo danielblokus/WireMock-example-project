@@ -7,25 +7,32 @@
     <groupId>io.github.danielblokus</groupId>
     <artifactId>wiremock-example-project</artifactId>
     <version>1.0</version>
+
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
+
+        <restassured.version>3.1.1</restassured.version>
+        <junit.version>4.12</junit.version>
+        <wiremock.version>2.18.0</wiremock.version>
+
     </properties>
+
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.12</version>
+            <version>${junit.version}</version>
         </dependency>
         <dependency>
             <groupId>com.github.tomakehurst</groupId>
             <artifactId>wiremock</artifactId>
-            <version>2.18.0</version>
+            <version>${wiremock.version}</version>
         </dependency>
         <dependency>
             <groupId>io.rest-assured</groupId>
             <artifactId>rest-assured</artifactId>
-            <version>3.1.1</version>
+            <version>${restassured.version}</version>
         </dependency>
     </dependencies>
 </project>
