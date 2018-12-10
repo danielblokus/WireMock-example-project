@@ -15,5 +15,6 @@ public class BasicTest {
     @BeforeClass
     public static void setUp() {
         RestAssured.port = port;
+        RestAssured.enableLoggingOfRequestAndResponseIfValidationFails();
     }
 }
