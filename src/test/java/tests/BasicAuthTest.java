@@ -1,7 +1,9 @@
 package tests;
 
+import configuration.ConfigurationReader;
 import io.restassured.RestAssured;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import stubs.ba.BasicAuthStub;
 import utils.HttpStatusCodes;
@@ -15,15 +17,20 @@ import static utils.HttpStatusCodes.SUCCESS;
 public class BasicAuthTest extends BasicTest {
 
     private static final String VALID_RESPONSE = "Hello BA!";
-    private static final String VALID_USER_NAME = "admin@danielblokus.github.io";
     private static final String VALID_PASSWORD = "12345678";
 
+    private static ConfigurationReader configurationReader;
     private final BasicAuthStub basicAuthStub = new BasicAuthStub();
+
+    @BeforeClass
+    public static void setUpEnvironment() {
+        configurationReader = new ConfigurationReader();
+    }
 
     @Before
     public void setPreemptiveBasicAuthentication() {
         RestAssured.authentication =
-            preemptive().basic(VALID_USER_NAME, VALID_PASSWORD);
+            preemptive().basic(configurationReader.getBasicAuth(), VALID_PASSWORD);
     }
 
     @Test
