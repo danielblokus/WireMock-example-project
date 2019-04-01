@@ -1,4 +1,4 @@
-package example;
+package tests;
 
 import com.jayway.jsonpath.JsonPath;
 import io.restassured.RestAssured;
