@@ -1,4 +1,4 @@
-package example;
+package tests;
 
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
 import io.restassured.RestAssured;
