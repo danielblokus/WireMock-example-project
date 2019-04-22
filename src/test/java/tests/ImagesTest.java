@@ -21,6 +21,7 @@ import static org.hamcrest.Matchers.*;
 public class ImagesTest extends BasicTest {
 
     private static final String HTTPS_REGEX = "^(https)://.*$";
+    private static final String ORIGINAL_URL_JSON_PATH = "$..originalUrl";
 
     private final ImagesStub imagesStub = new ImagesStub();
 
@@ -63,7 +64,6 @@ public class ImagesTest extends BasicTest {
                 .get(WebServicePaths.IMAGES_ENDPOINT_PATH)
             .then()
                 .extract().response();
-
-        return JsonPath.read(response.asString(), "$..originalUrl");
+        return JsonPath.read(response.asString(), ORIGINAL_URL_JSON_PATH);
     }
 }
