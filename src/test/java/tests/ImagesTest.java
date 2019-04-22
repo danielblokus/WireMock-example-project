@@ -49,7 +49,7 @@ public class ImagesTest extends BasicTest {
 
 
     @Test
-    public void checkHttpsShemaOfOrignalImagesUrls() {
+    public void checkHttpsSchemaOfOrignalImagesUrls() {
         getListOfOriginalUrls().forEach(x -> {
             assertThat(x.matches("^(https)://.*$"), is(true));
         });
