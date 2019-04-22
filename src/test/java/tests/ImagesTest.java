@@ -1,11 +1,8 @@
 package tests;
 
 import com.jayway.jsonpath.JsonPath;
-import configuration.ConfigurationReader;
-import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import stubs.ba.ImagesStub;
 import utils.HttpStatusCodes;
@@ -14,7 +11,6 @@ import utils.WebServicePaths;
 import java.util.List;
 
 import static io.restassured.RestAssured.given;
-import static io.restassured.RestAssured.preemptive;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 
