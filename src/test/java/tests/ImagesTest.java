@@ -1,9 +1,11 @@
 package tests;
 
 import com.jayway.jsonpath.JsonPath;
+import configuration.ConfigurationReader;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import stubs.ba.ImagesStub;
 import utils.HttpStatusCodes;
@@ -18,16 +20,10 @@ import static org.hamcrest.Matchers.*;
 
 public class ImagesTest extends BasicTest {
 
-    private static final String VALID_USER_NAME = "admin@danielblokus.github.io";
-    private static final String VALID_PASSWORD = "12345678";
-
     private final ImagesStub imagesStub = new ImagesStub();
 
     @Before
-    public void setPreemptiveBasicAuthentication() {
-        RestAssured.authentication =
-            preemptive().basic(VALID_USER_NAME, VALID_PASSWORD);
-
+    public void stubResponseBeforeEachTest() {
         imagesStub.stubResponse();
     }
 
