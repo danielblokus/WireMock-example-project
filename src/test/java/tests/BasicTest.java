@@ -21,6 +21,7 @@ public class BasicTest {
         RestAssured.enableLoggingOfRequestAndResponseIfValidationFails();
 
         RestAssured.authentication =
-                preemptive().basic(new ConfigurationReader().getBasicAuthName(), new ConfigurationReader().getBasicAuthPassword());
+                preemptive().basic(new ConfigurationReader().getBasicAuthName(),
+                        new ConfigurationReader().getBasicAuthPassword());
     }
 }
