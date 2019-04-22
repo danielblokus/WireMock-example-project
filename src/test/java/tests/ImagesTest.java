@@ -52,10 +52,8 @@ public class ImagesTest extends BasicTest {
 
 
     @Test
-    public void checkHttpsSchemaOfOrignalImagesUrls() {
-        getListOfOriginalUrls().forEach(x -> {
-            assertThat(x.matches(HTTPS_REGEX), is(true));
-        });
+    public void checkHttpsSchemaOfOriginalImagesUrls() {
+        getListOfOriginalUrls().forEach(x -> assertThat(x.matches(HTTPS_REGEX), is(true)));
     }
 
     private List<String> getListOfOriginalUrls() {
