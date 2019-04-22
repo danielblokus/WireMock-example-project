@@ -20,20 +20,10 @@ import static org.hamcrest.Matchers.*;
 
 public class ImagesTest extends BasicTest {
 
-    private static ConfigurationReader configurationReader;
-
     private final ImagesStub imagesStub = new ImagesStub();
 
-    @BeforeClass
-    public static void setUpEnvironment() {
-        configurationReader = new ConfigurationReader();
-    }
-
     @Before
-    public void setPreemptiveBasicAuthentication() {
-        RestAssured.authentication =
-            preemptive().basic(configurationReader.getBasicAuthName(), configurationReader.getBasicAuthPassword());
-
+    public void stubResponseBeforeEachTest() {
         imagesStub.stubResponse();
     }
 
