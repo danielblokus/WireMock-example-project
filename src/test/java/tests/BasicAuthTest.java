@@ -17,7 +17,6 @@ import static utils.HttpStatusCodes.SUCCESS;
 public class BasicAuthTest extends BasicTest {
 
     private static final String VALID_RESPONSE = "Hello BA!";
-    private static final String VALID_PASSWORD = "12345678";
 
     private static ConfigurationReader configurationReader;
     private final BasicAuthStub basicAuthStub = new BasicAuthStub();
