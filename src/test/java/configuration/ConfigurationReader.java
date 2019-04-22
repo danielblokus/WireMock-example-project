@@ -28,13 +28,23 @@ public class ConfigurationReader {
 				.getResourceAsStream(PATH_TO_CONFIGURATION_FILE))));
 	}
 
-	public String getBasicAuth() {
+	public String getBasicAuthName() {
 		String path = properties.getProperty("basicAuthUserName");
 		if (path != null) {
 			return path;
 		}
 		else {
 			throw new RuntimeException("basicAuthUserName not specified in the configuration.properties file");
+		}
+	}
+
+	public String getBasicAuthPassword() {
+		String path = properties.getProperty("basicAuthPassword");
+		if (path != null) {
+			return path;
+		}
+		else {
+			throw new RuntimeException("basicAuthPassword not specified in the configuration.properties file");
 		}
 	}
 }

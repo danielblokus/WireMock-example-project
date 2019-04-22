@@ -30,7 +30,7 @@ public class BasicAuthTest extends BasicTest {
     @Before
     public void setPreemptiveBasicAuthentication() {
         RestAssured.authentication =
-            preemptive().basic(configurationReader.getBasicAuth(), VALID_PASSWORD);
+            preemptive().basic(configurationReader.getBasicAuthName(), configurationReader.getBasicAuthPassword());
     }
 
     @Test
