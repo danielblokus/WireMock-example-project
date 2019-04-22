@@ -20,6 +20,8 @@ import static org.hamcrest.Matchers.*;
 
 public class ImagesTest extends BasicTest {
 
+    private static final String HTTPS_REGEX = "^(https)://.*$";
+
     private final ImagesStub imagesStub = new ImagesStub();
 
     @Before
@@ -51,7 +53,7 @@ public class ImagesTest extends BasicTest {
     @Test
     public void checkHttpsSchemaOfOrignalImagesUrls() {
         getListOfOriginalUrls().forEach(x -> {
-            assertThat(x.matches("^(https)://.*$"), is(true));
+            assertThat(x.matches(HTTPS_REGEX), is(true));
         });
     }
 
