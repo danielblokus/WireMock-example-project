@@ -1,7 +1,5 @@
 package tests;
 
-import io.restassured.RestAssured;
-import org.junit.Before;
 import org.junit.Test;
 import stubs.ba.BasicAuthStub;
 import utils.HttpStatusCodes;
@@ -16,11 +14,6 @@ public class BasicAuthTest extends BasicTest {
     private static final String VALID_RESPONSE = "Hello BA!";
 
     private final BasicAuthStub basicAuthStub = new BasicAuthStub();
-
-    @Before
-    public void setUpEnvironment() {
-        RestAssured.port = wireMockRule.port();
-    }
 
     @Test
     public void checkStatusCodeAfterBasicAuthorization() {

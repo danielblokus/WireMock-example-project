@@ -24,7 +24,6 @@ public class ImagesTest extends BasicTest {
 
     @Before
     public void setUpEnvironment() {
-        RestAssured.port = wireMockRule.port();
         imagesStub.stubResponse();
     }
 
