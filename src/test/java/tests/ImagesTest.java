@@ -1,6 +1,7 @@
 package tests;
 
 import com.jayway.jsonpath.JsonPath;
+import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.junit.Before;
 import org.junit.Test;
@@ -22,7 +23,8 @@ public class ImagesTest extends BasicTest {
     private final ImagesStub imagesStub = new ImagesStub();
 
     @Before
-    public void stubResponseBeforeEachTest() {
+    public void setUpEnvironment() {
+        RestAssured.port = wireMockRule.port();
         imagesStub.stubResponse();
     }
 
