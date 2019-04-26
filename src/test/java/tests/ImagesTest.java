@@ -1,7 +1,7 @@
 package tests;
 
+import com.github.tomakehurst.wiremock.client.WireMock;
 import com.jayway.jsonpath.JsonPath;
-import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.junit.Before;
 import org.junit.Test;
@@ -11,6 +11,8 @@ import utils.WebServicePaths;
 
 import java.util.List;
 
+import static com.github.tomakehurst.wiremock.client.WireMock.getRequestedFor;
+import static com.github.tomakehurst.wiremock.client.WireMock.urlPathEqualTo;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
@@ -35,6 +37,8 @@ public class ImagesTest extends BasicTest {
         .then()
             .assertThat()
                 .body("results", hasSize(greaterThan(0)));
+
+        WireMock.verify(getRequestedFor(urlPathEqualTo(WebServicePaths.IMAGES_ENDPOINT_PATH)));
     }
 
     @Test
