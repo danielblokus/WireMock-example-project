@@ -1,6 +1,8 @@
 package tests;
 
+import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
+import org.junit.Before;
 import org.junit.Test;
 import stubs.ExampleStub;
 import utils.HttpStatusCodes;
@@ -17,6 +19,11 @@ public class ExampleTest extends BasicTest {
     private static final String VALID_BODY_RESPONSE = "Hello";
     
     private final ExampleStub exampleStub = new ExampleStub();
+
+    @Before
+    public void setUpEnvironment() {
+        RestAssured.port = wireMockRule.port();
+    }
 
     @Test
     public void checkCorrectResponse() {
