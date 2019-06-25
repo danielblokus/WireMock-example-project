@@ -7,7 +7,7 @@ import utils.HttpStatusCodes;
 import utils.WebServicePaths;
 
 import static io.restassured.RestAssured.given;
-import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.Matchers.lessThan;
 import static utils.WebServicePaths.INVALID_ENDPOINT_PATH;
 

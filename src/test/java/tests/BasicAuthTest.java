@@ -6,7 +6,7 @@ import utils.HttpStatusCodes;
 import utils.WebServicePaths;
 
 import static io.restassured.RestAssured.given;
-import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.CoreMatchers.equalTo;
 import static utils.HttpStatusCodes.SUCCESS;
 
 public class BasicAuthTest extends BasicTest {
