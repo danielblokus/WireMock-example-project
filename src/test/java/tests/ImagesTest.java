@@ -68,13 +68,30 @@ public class ImagesTest extends BasicTest {
     }
 
     @Test
-    public void checkEntireResponse() {
+    public void checkEntireResponseWithDynamicHeaders() {
         Response response = given()
                 .get(WebServicePaths.IMAGES_ENDPOINT_PATH);
-        String responseAsString = response.headers().toString() + "\n" + response.body().asString();
+
+        Approvals.verify(replaceDynamicData(getEntireResponse(response)));
+    }
+
+    private String replaceDynamicData(String responseAsString) {
         responseAsString = responseAsString.replaceAll("User-Id=.*", "###GENERATED-USER-ID###");
         responseAsString = responseAsString.replaceAll("Matched-Stub-Id=.*", "###GENERATED-STUB-ID###");
-
-        Approvals.verify(responseAsString);
+        return responseAsString;
     }
+
+    private String getEntireResponse(Response response) {
+        return getResponseHeaders(response) + "\n" + getResponseBody(response);
+    }
+
+    private String getResponseHeaders(Response response) {
+        return response.headers().toString();
+    }
+
+    private String getResponseBody(Response response) {
+        return response.body().asString();
+    }
+
+
 }
