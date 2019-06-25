@@ -53,7 +53,7 @@ public class ImagesTest extends BasicTest {
 
 
     @Test
-    public void checkHttpsSchemaOfOriginalImagesUrls() {
+    public void checkOriginalImagesUrlsHaveHttpsScheme() {
         getListOfOriginalUrls().forEach(x -> assertThat(x.matches(HTTPS_REGEX), is(true)));
     }
 
