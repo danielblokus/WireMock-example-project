@@ -3,9 +3,9 @@ package stubs.ba;
 import utils.HttpHeaders;
 import utils.HttpStatusCodes;
 
-import static com.github.tomakehurst.wiremock.client.WireMock.aResponse;
-import static com.github.tomakehurst.wiremock.client.WireMock.get;
-import static com.github.tomakehurst.wiremock.client.WireMock.stubFor;
+import java.util.UUID;
+
+import static com.github.tomakehurst.wiremock.client.WireMock.*;
 import static utils.WebServicePaths.IMAGES_ENDPOINT_PATH;
 
 public class ImagesStub {
@@ -20,6 +20,11 @@ public class ImagesStub {
                 .willReturn(aResponse()
                         .withStatus(HttpStatusCodes.SUCCESS)
                         .withHeader(HttpHeaders.CONTENT_TYPE_HEADER_KEY, HttpHeaders.JSON_HEADER_VALUE)
+                        .withHeader("User-Id", generateRandomUUID())
                         .withBodyFile(JSON_RESPONSE_PATH)));
+    }
+
+    private String generateRandomUUID() {
+        return UUID.randomUUID().toString();
     }
 }
