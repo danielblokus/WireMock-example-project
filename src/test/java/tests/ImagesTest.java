@@ -94,6 +94,4 @@ public class ImagesTest extends BasicTest {
     private String getResponseBody(Response response) {
         return response.body().asString();
     }
-
-
 }
