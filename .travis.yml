@@ -7,5 +7,7 @@ cache:
 install:
   - java -version
 
-script:
-  - mvn clean test -X
+jobs:
+  include:
+    - stage: test
+      script: mvn clean test -X
