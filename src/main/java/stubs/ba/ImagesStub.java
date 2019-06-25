@@ -20,6 +20,11 @@ public class ImagesStub {
                 .willReturn(aResponse()
                         .withStatus(HttpStatusCodes.SUCCESS)
                         .withHeader(HttpHeaders.CONTENT_TYPE_HEADER_KEY, HttpHeaders.JSON_HEADER_VALUE)
+                        .withHeader("User-Id", generateRandomUUID())
                         .withBodyFile(JSON_RESPONSE_PATH)));
+    }
+
+    private String generateRandomUUID() {
+        return UUID.randomUUID().toString();
     }
 }
