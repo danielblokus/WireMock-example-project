@@ -3,6 +3,7 @@ package tests;
 import com.github.tomakehurst.wiremock.client.WireMock;
 import com.jayway.jsonpath.JsonPath;
 import io.restassured.response.Response;
+import org.approvaltests.Approvals;
 import org.junit.Before;
 import org.junit.Test;
 import stubs.ba.ImagesStub;
@@ -64,5 +65,16 @@ public class ImagesTest extends BasicTest {
             .then()
                 .extract().response();
         return JsonPath.read(response.asString(), ORIGINAL_URL_JSON_PATH);
+    }
+
+    @Test
+    public void checkEntireResponse() {
+        Response response = given()
+                .get(WebServicePaths.IMAGES_ENDPOINT_PATH);
+        String responseAsString = response.headers().toString() + "\n" + response.body().asString();
+        responseAsString = responseAsString.replaceAll("User-Id=.*", "###GENERATED-USER-ID###");
+        responseAsString = responseAsString.replaceAll("Matched-Stub-Id=.*", "###GENERATED-STUB-ID###");
+
+        Approvals.verify(responseAsString);
     }
 }
