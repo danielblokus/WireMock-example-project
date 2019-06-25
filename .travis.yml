@@ -4,9 +4,6 @@ cache:
   directories:
     - $HOME/.m2
 
-install:
-  - java -version
-
 jobs:
   include:
     - stage: test
