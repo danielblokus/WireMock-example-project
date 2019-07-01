@@ -7,6 +7,7 @@ public final class WebServicePaths {
     public static final String BA_ENDPOINT_PATH = "/basic/auth";
     public static final String DELAYED_ENDPOINT_PATH = "/delayed";
     public static final String IMAGES_ENDPOINT_PATH = "/images";
+    public static final String INITIALIZE_ENDPOINT_PATH = "/init";
 
     private WebServicePaths() {
 
