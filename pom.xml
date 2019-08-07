@@ -14,7 +14,7 @@
 
         <restassured.version>4.0.0</restassured.version>
         <junit.version>4.12</junit.version>
-        <wiremock.version>2.23.2</wiremock.version>
+        <wiremock.version>2.24.1</wiremock.version>
 
     </properties>
 
