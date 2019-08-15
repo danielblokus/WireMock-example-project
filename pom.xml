@@ -15,6 +15,7 @@
         <restassured.version>4.0.0</restassured.version>
         <junit.version>4.12</junit.version>
         <wiremock.version>2.23.2</wiremock.version>
+        <restassured-schema-validator.version>4.0.0</restassured-schema-validator.version>
 
     </properties>
 
@@ -44,6 +45,11 @@
             <groupId>io.rest-assured</groupId>
             <artifactId>rest-assured</artifactId>
             <version>${restassured.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>json-schema-validator</artifactId>
+            <version>${restassured-schema-validator.version}</version>
         </dependency>
     </dependencies>
 </project>
