@@ -54,7 +54,6 @@ public class ImagesTest extends BasicTest {
                 .statusCode(HttpStatusCodes.SUCCESS);
     }
 
-
     @Test
     public void checkOriginalImagesUrlsHaveHttpsScheme() {
         getListOfOriginalUrls().forEach(x -> assertThat(x.matches(HTTPS_REGEX), is(true)));
