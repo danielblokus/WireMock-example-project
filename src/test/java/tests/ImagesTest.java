@@ -5,6 +5,7 @@ import com.jayway.jsonpath.JsonPath;
 import io.restassured.response.Response;
 import org.approvaltests.Approvals;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import stubs.ba.ImagesStub;
 import utils.HttpStatusCodes;
@@ -69,6 +70,7 @@ public class ImagesTest extends BasicTest {
     }
 
     @Test
+    @Ignore
     public void checkEntireResponseWithDynamicHeaders() {
         Response response = given()
                 .get(WebServicePaths.IMAGES_ENDPOINT_PATH);
